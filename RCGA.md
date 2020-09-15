@@ -27,6 +27,18 @@ The system response of the candidate FCM is computed by decoding the chromosome 
 
 where <img src="https://latex.codecogs.com/gif.latex?C(t)=[C_{1}(t),C_{2}(t),...,&space;C_{n}(t)]" title="C(t)=[C_{1}(t),C_{2}(t),..., C_{n}(t)]" /> the known system response for <img src="https://latex.codecogs.com/gif.latex?C_{t-1}" title="C_{t-1}" /> initial vector, <img src="https://latex.codecogs.com/gif.latex?\hat{C_{t}}=[\hat{C_{1}}(t),&space;\hat{C_{2}}(t),...,&space;\hat{C_{n}}(t)]" title="\hat{C_{t}}=[\hat{C_{1}}(t), \hat{C_{2}}(t),..., \hat{C_{n}}(t)]" /> the system response of the candidate FCM for <img src="https://latex.codecogs.com/gif.latex?C_{t-1}" title="C_{t-1}" /> initial vector, <em>p = 1, 2 <img src="https://latex.codecogs.com/gif.latex?\infty" title="\infty" /> </em> the norm type, <img src="https://latex.codecogs.com/gif.latex?\alpha" title="\alpha" /> the parameter used to normalize error rate, which is equal to 1/(K-1)*N for  <img src="https://latex.codecogs.com/gif.latex?p\in\begin{Bmatrix}&space;1,2&space;\end{Bmatrix}" title="p\in\begin{Bmatrix} 1,2 \end{Bmatrix}" /> and and 1/K − 1 for p =  <img src="https://latex.codecogs.com/gif.latex?\infty" title="\infty" /> respoectively.
 
+
+We need to extend this formula to average across all the individuals in the sample:
+
+<img src="https://latex.codecogs.com/gif.latex?\beta\sum_{i=1}^{S}\alpha&space;\sum_{t=1}^{K-1}\sum_{n=1}^{N}|C_{n}(t)-\hat{C_{n}(t)}|_{i}^{p}" title="\beta\sum_{i=1}^{S}\alpha \sum_{t=1}^{K-1}\sum_{n=1}^{N}|C_{n}(t)-\hat{C_{n}(t)}|_{i}^{p}" />
+
+where <img src="https://latex.codecogs.com/gif.latex?\beta" title="\beta" /> is 1/S; S = Sample size.
+
+Another option would be to take take the square root of the average:
+<img src="https://latex.codecogs.com/gif.latex?\beta(x)=\sqrt{\frac{1}{S}(x)}" title="\beta(x)=\sqrt{\frac{1}{S}(x)}" />
+
+
+
 Fitness function = <em>h</em>(Error_Lp)
 where h is:
 
@@ -47,3 +59,4 @@ input data, is equal to one.
 * max_generation: 300,000
 * max fitness: 0.999
 * fitness function: L2 norm.
+
