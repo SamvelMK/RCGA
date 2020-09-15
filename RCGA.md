@@ -2,7 +2,7 @@
 
 ### Learning objective:
 
-Determine a connection matrix <img src="https://latex.codecogs.com/gif.latex?\hat{E}" title="\hat{E}" /> given an input data <img src="https://latex.codecogs.com/gif.latex?C_{t}" title="C_{t}" /> at certain iteration interval t ∈ {0,...,tK} such that the FCM minimizes the error between the observed <img src="https://latex.codecogs.com/gif.latex?C_{t}" title="C_{t}" /> and the predicted values <img src="https://latex.codecogs.com/gif.latex?\hat{C_{t+1}}" title="C_{t}" />.
+Determine a connection matrix <img src="https://latex.codecogs.com/gif.latex?\hat{E}" title="\hat{E}" /> given an input data <img src="https://latex.codecogs.com/gif.latex?C_{t}" title="C_{t}" /> at certain iteration interval t ∈ {0,...,tK} such that the FCM minimizes the <em>average</em> error between the observed <img src="https://latex.codecogs.com/gif.latex?C_{t}" title="C_{t}" /> and the predicted values <img src="https://latex.codecogs.com/gif.latex?\hat{C}_{t+1}" title="C_{t}" />.
 <br>
 ### Chromosome Structure
 Each chromosome is a vector of floating point numbers ranging from [-1, 1]. Each element of the vector is called gene. The length of the chromosome corresponds to the number of variables in a given problem (N(N-1)). 
