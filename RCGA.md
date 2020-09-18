@@ -34,9 +34,8 @@ We need to extend this formula to average across all the individuals in the samp
 
 where <img src="https://latex.codecogs.com/gif.latex?\beta" title="\beta" /> is 1/S; S = Sample size.
 
-Another option would be to take take the square root of the average:
+Another option would be to take take the square root of the average to penalize larger errors:
 <img src="https://latex.codecogs.com/gif.latex?\beta(x)=\sqrt{\frac{1}{S}(x)}" title="\beta(x)=\sqrt{\frac{1}{S}(x)}" />
-
 
 
 Fitness function = <em>h</em>(Error_Lp)
@@ -48,6 +47,29 @@ The fitness function is normalized to the (0, 1] where:
 * the worse is the individual the closer to zero its fitness value is;
 * fitness value for an ideal chromosome, which results is exactly the same state vector sequence as the
 input data, is equal to one.
+
+### Operations
+
+#### Mutation
+
+Non-Uniform mutation:
+In a non-uniform mutation the amount of mutation decreases as a function of t (generation number). 
+For a chromosome <img src="https://latex.codecogs.com/gif.latex?\hat{E}" title="\hat{E}" />, at itiration t, the selected element (gene) <img src="https://latex.codecogs.com/gif.latex?e_{ij}" title="e_{ij}" /> for mutation will have the following form <img src="https://latex.codecogs.com/gif.latex?\acute{e_{ij}}" title="\acute{e_{ij}}" />:
+
+<img src="https://latex.codecogs.com/gif.latex?\acute{e_{ij}}=&space;\left\{\begin{matrix}&space;e_{ij}&space;&plus;&space;\Delta&space;(t,&space;UB&space;-&space;e_{ij}),&space;\;&space;if\;&space;a\;&space;random\;&space;digit\;&space;is\;&space;0&space;\\&space;e_{ij}&space;-&space;\Delta&space;(t,&space;e_{ij}&space;-&space;LB),\;&space;if&space;\;&space;a&space;\;&space;random\;&space;digit\;&space;is\;&space;1&space;\end{matrix}\right." title="\acute{e_{ij}}= \left\{\begin{matrix} e_{ij} + \Delta (t, UB - e_{ij}), \; if\; a\; random\; digit\; is\; 0 \\ e_{ij} - \Delta (t, e_{ij} - LB),\; if \; a \; random\; digit\; is\; 1 \end{matrix}\right." />
+
+where; <br>
+<em>UB</em> is the upper bound of the <img src="https://latex.codecogs.com/gif.latex?e_{ij}" title="e_{ij}" /> <br>
+<em>LB</em> is the lower bound of the <img src="https://latex.codecogs.com/gif.latex?e_{ij}" title="e_{ij}" />
+
+<br><br>
+<img src="https://latex.codecogs.com/gif.latex?\Delta&space;(t,&space;y)&space;=&space;y\cdot&space;(1-r^{(1-\frac{t}{T})^{b}})" title="\Delta (t, y) = y\cdot (1-r^{(1-\frac{t}{T})^{b}})" />
+where; <br>
+<em>r</em> is a random number in the range of [0,1] <br>
+<em>b</em> is a system parameter determining the degree of dependency on iteration number (default: b=5)
+
+The <img src="https://latex.codecogs.com/gif.latex?\Delta&space;(t,&space;y)" title="\Delta (t, y)" /> returns a value in the range [0, y].
+
 
 ### RCGA parameters
 
